@@ -27,14 +27,14 @@ func main() {
 				port, _ := strconv.Atoi(Port)
 				_, r2 := attackRequest(host, port, path)
 				if len(r2) > 1 {
-					fmt.Println(r2)
+					//fmt.Println(r2)
 					h2, b2, err := splitHTTPResponse(r2)
 					if err == nil {
 						scode2, err := extractStatusCode(h2)
 						if err == nil {
 							r3 := normalRequest("GET", "/robots.txt", host, port)
 							if len(r3) > 1 {
-								fmt.Println(r3)
+								//fmt.Println(r3)
 								h3, b3, err := splitHTTPResponse(r3)
 								if err == nil {
 									scode3, err := extractStatusCode(h3)
@@ -42,7 +42,7 @@ func main() {
 										if b2 == b3 && scode2 == scode3 {
 											r4 := normalRequest("GET", "/", host, port)
 											if len(r4) > 1 {
-												fmt.Println(r4)
+												//fmt.Println(r4)
 
 												h4, b4, err := splitHTTPResponse(r4)
 												if err == nil {
